@@ -23,7 +23,7 @@ app.post("/notes", (req, res) => {
   fs.readFile("./db.json", (err, data) => {
     try {
       const notes = JSON.parse(data).notes;
-      notes.push(req.body);
+      notes.push({ ...req.body, id: +new Date() });
       fs.writeFileSync("./db.json", JSON.stringify({ notes: notes }));
       res.status(200).json(req.body);
     } catch (error) {

@@ -12,7 +12,7 @@ app.get('/api/notes', (req, res) => {
   fs.readFile('./db.json', (err, data) => {
     try {
       const notes = JSON.parse(data);
-      res.status(200).json({ data: notes });
+      res.status(200).json(notes);
     } catch (error) {
       res.status(500).json({ message: 'Internal server error', error: err });
     }
@@ -23,10 +23,10 @@ app.post('/api/notes', (req, res) => {
   fs.readFile('./db.json', (err, data) => {
     try {
       const notes = JSON.parse(data);
-      const noteToCreate = { id: +new Date(), attributes: { ...req.body.data } };
+      const noteToCreate = { ...req.body, id: +new Date() };
       notes.push(noteToCreate);
       fs.writeFileSync('./db.json', JSON.stringify(notes));
-      res.status(200).json(notes);
+      res.status(200).json(noteToCreate);
     } catch (error) {
       res.status(500).json({ message: 'Internal server error', error: err });
     }
@@ -37,17 +37,18 @@ app.put('/api/notes/:noteId', (req, res) => {
   const noteIdToUpdate = parseInt(req.params.noteId);
   fs.readFile('./db.json', (err, data) => {
     try {
-      const notes = JSON.parse(data).notes;
+      const notes = JSON.parse(data);
       const updatedNoteIndex = notes.findIndex(
         (note) => note.id === noteIdToUpdate
       );
       if (updatedNoteIndex === -1) {
         res.status(404).json({ message: 'Заметка не найдена.' });
       } else {
-        const notesCopy = [...notes];
-        notesCopy.splice(updatedNoteIndex, 1, req.body.data);
-        fs.writeFileSync('./db.json', JSON.stringify({ notes: notesCopy }));
-        res.status(200).json(notesCopy);
+        let updatedNote = notes[updatedNoteIndex];
+        updatedNote = { ...updatedNote, ...req.body, id: updatedNote.id };
+        notes.splice(updatedNoteIndex, 1, updatedNote);
+        fs.writeFileSync('./db.json', JSON.stringify(notes));
+        res.status(200).json(updatedNote);
       }
     } catch (error) {
       res.status(500).json({ message: 'Internal server error', error: err });
@@ -59,13 +60,13 @@ app.delete('/api/notes/:noteId', (req, res) => {
   const noteIdToRemove = parseInt(req.params.noteId);
   fs.readFile('./db.json', (err, data) => {
     try {
-      const notes = JSON.parse(data).notes;
+      const notes = JSON.parse(data);
       const noteToRemove = notes.find((note) => note.id === noteIdToRemove);
       const filteredNotes = notes.filter((note) => note.id !== noteIdToRemove);
       if (notes.length === filteredNotes.length) {
         res.status(404).json({ message: 'Заметка не найдена.' });
       } else {
-        fs.writeFileSync('./db.json', JSON.stringify({ notes: filteredNotes }));
+        fs.writeFileSync('./db.json', JSON.stringify(filteredNotes));
         res.status(200).json(noteToRemove);
       }
     } catch (error) {

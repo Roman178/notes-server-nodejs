@@ -1,13 +1,1 @@
-{
-  "notes": [
-    { "id": 9, "text": "vcxxvc", "title": "vfdvvcxddd" },
-    {
-      "id": 1644224148310,
-      "title": "Заметка 34",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
-    },
-    { "id": 1644780653222, "title": "65", "text": "7567567" },
-    { "id": 1644787973094, "title": "565", "text": "y56765" },
-    { "id": 1644789263244, "title": "99999", "text": "00000" }
-  ]
-}
+[{"id":1,"attributes":{"title":"My note","description":"note description","author":"Brad Pitt","importance":"very","isEveryDayNotification":true,"timeForNotification":"12:30:00"}},{"id":1690461271059,"attributes":{"title":"effd","description":"gfdfd","author":"gfdgdgfgfd","importance":"ordinary","isEveryDayNotification":true,"timeForNotification":"02:15:07"}},{"id":1690461333867,"attributes":{"title":"ghfhgfhgf","description":"hythtr","author":"frefecef","importance":"less","isEveryDayNotification":false,"timeForNotification":"00:00:00"}}]
